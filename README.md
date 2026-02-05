@@ -1,14 +1,15 @@
 # Desafio Técnico
 
-### Desenvolver uma API com as funcionalides de cadastrar, listar, atualizar e excluir clientes. 
+Desenvolver uma API com as funcionalides de cadastrar, listar, atualizar e excluir clientes
 
 ## Abordagem utilizada:
 
-### BackEnd
+### BackEnd:
 
 - NodeJS
 - Express
 
-### FrontEnd
+### FrontEnd: 
+
 - React
 - Axios
