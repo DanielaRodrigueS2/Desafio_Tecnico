@@ -2,14 +2,14 @@
 
 Desenvolver uma API com as funcionalides de cadastrar, listar, atualizar e excluir clientes
 
-## Abordagem utilizada:
+## Abordagem utilizada
 
-### BackEnd:
+### BackEnd
 
 - NodeJS
 - Express
 
-### FrontEnd: 
+### FrontEnd
 
 - React
 - Axios
