@@ -15,4 +15,62 @@ html,body{
   align-items: center;
   flex-direction: column;
   background-color: #722c26;
+  justify-content: space-around;
+}
+
+.header{
+  display: flex;
+  width: 60%;
+  height: 15%;
+  align-items: center;
+  justify-content: center;
+  background-color: #8e443d;
+}
+
+.main{
+  display: flex;
+  width: 60%;
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #aa5d54;
+}
+
+.busca{
+  display: flex;
+  width: 80%;
+  height: 20%;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.barraDeBusca{
+  width: 80%;
+  height: 20%;
+  font-size: large;
+}
+
+.dropDown{
+  width: 15%;
+  height: 25%;
+  font-size: larger;
+}
+
+.lista{
+  display: flex;
+  width: 78%;
+  height: 70%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #c5756b;
+}
+
+.footer{
+  display: flex;
+  width: 60%;
+  height: 15%;
+  background-color: #c5756b;
 }
