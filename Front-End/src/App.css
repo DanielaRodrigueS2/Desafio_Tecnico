@@ -32,7 +32,7 @@ html,body{
   width: 60%;
   height: 60%;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   background-color: #aa5d54;
 }
@@ -40,21 +40,22 @@ html,body{
 .busca{
   display: flex;
   width: 80%;
-  height: 20%;
+  height: 10%;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
+  
 }
 
 .barraDeBusca{
   width: 80%;
-  height: 20%;
+  height: 36%;
   font-size: large;
 }
 
 .dropDown{
   width: 15%;
-  height: 25%;
+  height: 45%;
   font-size: larger;
 }
 
@@ -68,6 +69,12 @@ html,body{
   overflow: scroll;
   overflow-x: auto;
   scrollbar-width: thin;
+}
+
+.adicionarCliente{
+  background-color: aliceblue;
+  height: 5%;
+  width: 20%;
 }
 
 .footer{

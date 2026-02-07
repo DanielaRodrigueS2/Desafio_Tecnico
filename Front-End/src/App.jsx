@@ -9,12 +9,12 @@ function App() {
   const dadosTeste = [
     {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
     {id: 2, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 2, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 2, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 2, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
+    {id: 3, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
+    {id: 4, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
+    {id: 5, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
+    {id: 6, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
+    {id: 7, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
+    {id: 8, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
     
   ]
 
@@ -45,6 +45,8 @@ function App() {
           ))}
 
         </div>
+
+        <button className='adicionarCliente'>Adicionar Cliente</button>
 
       </main>
 
