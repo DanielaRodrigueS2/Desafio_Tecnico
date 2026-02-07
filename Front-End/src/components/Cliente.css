@@ -1,0 +1,15 @@
+.card{
+    display: flex;
+    height: 80px !important;
+    width: 99%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #722c26;
+    border: 2px solid black;
+    flex-shrink: 0; 
+    flex-grow: 0; 
+}
+
+.cardLabel{
+    align-self: center;
+}
