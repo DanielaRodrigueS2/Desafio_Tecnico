@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const incrementador = require('mongoose-sequence')(mongoose);
 
 const ClienteSchema = new mongoose.Schema({
     nome: {type: String, required: true},
@@ -7,4 +8,8 @@ const ClienteSchema = new mongoose.Schema({
     cidade: {type: String, required: true},
 })
 
+ClienteSchema.plugin(incrementador, {inc_field: 'id_Num'});
+
 const Cliente = mongoose.model('Cliente', ClienteSchema);
+
+module.exports = Cliente;
