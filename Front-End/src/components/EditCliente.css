@@ -60,7 +60,7 @@
     flex-direction: row;
     justify-content: space-around;
     height: 7%;
-    width: 35%;
+    width: 100%;
     cursor: pointer;
 }
 

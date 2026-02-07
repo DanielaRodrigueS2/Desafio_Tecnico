@@ -3,7 +3,7 @@ import './EditCliente.css'
 
 function EditCliente(props){
 
-     dados = props.dadosCliente;
+    const dados = props.dadosCliente;
 
     const [nome, setNome] = useState(dados.nome);
     const [email, setEmail] = useState(dados.email);
@@ -27,19 +27,19 @@ function EditCliente(props){
                 <button className="fechar" onClick={props.fecharMenu}>X</button>
             </div>
             
-            <div className="EditNome">
+            <div className="editNome">
                 <label>Nome</label>
                 <input type="text" value={nome} onChange={(e) => setNome(e.target.value)}></input>
             </div>
-            <div className="EditEmail">
+            <div className="editEmail">
                 <label>Email</label>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
             </div>
-            <div className="EditTelefone">
+            <div className="editTelefone">
                 <label>Telefone</label>
                 <input type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)}></input>
             </div>
-            <div className="EditCidade">
+            <div className="editCidade">
                 <label>Cidade</label>
                 <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)}></input>
             </div>
