@@ -2,7 +2,7 @@ const Cliente = require('../models/ClienteModel');
 
 exports.getClientes = async (req, res)=>{
     try{
-        const clientes = await Cliente.findById();
+        const clientes = await Cliente.find();
         res.status(200).json(clientes);
     }
     catch(erro){
@@ -11,7 +11,7 @@ exports.getClientes = async (req, res)=>{
 };
 
 exports.getClienteById = async (req, res) =>{
-    const id = req.params.id;
+    const id = Number(req.params.id);
     try{
         const cliente = await Cliente.findOne({id_num: id});
         if(!cliente) return res.status(404).json({erro:'Cliente não encontrado'}); // verifica se o cliente foi retornado ou nao
@@ -41,11 +41,11 @@ exports.createCliente = async (req,res) =>{
 }
 
 exports.editCliente = async (req, res)=>{
-    const id = req.params.id;
+    const id = Number(req.params.id);
     const {nome, email, telefone, cidade} = req.body;
     try{
         const cliente = await Cliente.findOne({id_num: id});
-        if (!cliente) res.status(400).json({erro: 'Cliente não encontrado'}); //  verifica se o cliente existe
+        if (!cliente) return res.status(400).json({erro: 'Cliente não encontrado'}); //  verifica se o cliente existe
 
         if(email){
             const clienteExistente = await Cliente.findOne({email: email, id_num: {$ne : id}}) // verifica se outro cliente possui o email novo (tirando o cliente atual)
@@ -58,9 +58,9 @@ exports.editCliente = async (req, res)=>{
         cliente.telefone = telefone ?? cliente.telefone;
         cliente.cidade = cidade ?? cliente.cidade;
 
-        clienteAlterado = await cliente.save();
+        const clienteAlterado = await cliente.save();
 
-
+        res.status(200).json(clienteAlterado);
     }
     catch(erro){
         res.status(500).json({erro: erro.message});
@@ -69,13 +69,13 @@ exports.editCliente = async (req, res)=>{
 };
 
 exports.deleteCliente = async (req,res) =>{
-    const id = req.params.id;
+    const id = Number (req.params.id);
 
     try{
         const cliente = await Cliente.findOneAndDelete({id_num: id}); 
         if(!cliente) return res.status(404).json({erro: 'Cliente nao encontrado'});
 
-        res.status(204).json({mensagem: 'cliente deletado com sucesso'});
+        res.status(204).send();
     }
     catch(erro){
         res.status(500).json({erro: erro.message});
