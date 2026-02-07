@@ -1,4 +1,5 @@
 const Cliente = require('../models/ClienteModel');
+const getProximo = require('../utils/ProxNumero');
 
 exports.getClientes = async (req, res)=>{
     try{
@@ -29,7 +30,8 @@ exports.createCliente = async (req,res) =>{
         const clienteExistente = await Cliente.findOne({email});
         if(clienteExistente) return res.status(400).json({erro: 'Email já cadastrado'}); // verifica se um cliente ja possui esse email
         
-        const clienteNovo = new Cliente({nome, email, telefone, cidade});
+        const id = await getProximo('cliente');
+        const clienteNovo = new Cliente({id_num: id, nome, email, telefone, cidade});
         const clienteCriado = await clienteNovo.save();
 
         res.status(201).json(clienteCriado);
