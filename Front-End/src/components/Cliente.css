@@ -11,5 +11,9 @@
 }
 
 .cardLabel{
+    display: flex;
     align-self: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
 }
