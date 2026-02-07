@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const ClienteRoutes = require('./routes/ClienteRoutes');
 
 const app = express({
     origin: 'http://localhost:5173',
@@ -10,6 +11,8 @@ const app = express({
 
 app.use(cors());
 app.use(express.json());
+
+app.use(ClienteRoutes);
 
 
 module.exports = app
