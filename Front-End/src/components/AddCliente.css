@@ -1,0 +1,28 @@
+.addCliente{
+    display: flex;
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    height: 50%;
+    background-color: #722c26;
+}
+
+.addNome, .addEmail, .addTelefone .addCidade{
+    display: flex;
+    height: 15%;
+    width: 60%;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1px;
+    background-color: aliceblue;
+}
+
+.botaoCadastrarCliente{
+    background-color: aliceblue;
+    height: 5%;
+    width: 20%;
+}
