@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import './App.css'
 import Cliente from './components/Cliente'
+import AddCliente from './components/AddCliente'
 
 function App() {
 
   const [busca, setBusca] = useState('')
+  const [menuCadastro, setMenuCadastro] = useState(false);
+
+  // Funcões para abrir e fechar o menu de Cadastro de clientes
+  const fecharMenuCadastro = () => setMenuCadastro(false);
+  const abrirMenuCadastro = () => setMenuCadastro(true);
 
   const dadosTeste = [
     {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
@@ -46,7 +52,9 @@ function App() {
 
         </div>
 
-        <button className='adicionarCliente'>Adicionar Cliente</button>
+        <button className='adicionarCliente' onClick={abrirMenuCadastro}>Adicionar Cliente</button>
+
+        {menuCadastro && <AddCliente fecharMenu={fecharMenuCadastro}></AddCliente>}
 
       </main>
 
