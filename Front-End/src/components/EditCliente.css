@@ -61,6 +61,7 @@
     justify-content: space-around;
     height: 7%;
     width: 35%;
+    cursor: pointer;
 }
 
 .botaoEditarCliente, .botaoDeletarCliente{
@@ -69,4 +70,5 @@
     width: 35%;
     justify-self: flex-end;
     font-size: large;
+    cursor: pointer;
 }

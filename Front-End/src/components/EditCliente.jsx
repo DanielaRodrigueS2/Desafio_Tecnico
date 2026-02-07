@@ -50,10 +50,8 @@ function EditCliente(props){
 
                 <button className ='botaoEditarCliente' type="submit">Editar Cliente</button>
                 <button className="botaoDeletarCliente">Deletar Cliente</button>
-                
+
             </div>
-
-
 
         </form>
     );

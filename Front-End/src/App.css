@@ -75,6 +75,7 @@ html,body{
   background-color: aliceblue;
   height: 5%;
   width: 20%;
+  cursor: pointer;
 }
 
 .footer{

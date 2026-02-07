@@ -60,4 +60,5 @@
     width: 35%;
     justify-self: flex-end;
     font-size: large;
+    cursor: pointer;
 }
