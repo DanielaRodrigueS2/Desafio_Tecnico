@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './EditCliente.css'
+import axios from "axios";
 
 function EditCliente(props){
 
@@ -14,8 +15,28 @@ function EditCliente(props){
 
     const editarCliente = (e) =>{
         e.preventDefault();
-        // Aplicação do fetch para o back end
+        const clienteModificado = {
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            cidade: cidade,
+        }
+        
+        axios
+            .put(`http://localhost:3000/clientes/${dados.id_num}`, clienteModificado)
+            .then((response) =>{
+                console.log(response.data);
+                props.fecharMenu();
+                props.buscar();
+            })
+            .catch((err) =>{
+                if(err.response.data.erro) setErro(err.response.data.erro);
+            })
 
+    }
+
+    const deletarCliente = () =>{
+        
     }
 
     return(
@@ -49,7 +70,7 @@ function EditCliente(props){
             <div className="botoesEditar">
 
                 <button className ='botaoEditarCliente' type="submit">Editar Cliente</button>
-                <button className="botaoDeletarCliente">Deletar Cliente</button>
+                <button className="botaoDeletarCliente" onClick={deletarCliente}>Deletar Cliente</button>
 
             </div>
 

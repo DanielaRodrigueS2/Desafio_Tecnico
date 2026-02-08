@@ -30,7 +30,7 @@ function AddCliente(props){
             .then((response) => {
                 console.log(response.data);
                 props.fecharMenu();
-                props.buscarClientes();
+                props.buscar();
             })
             .catch((err)=>{
                 setErro(err.response.data.erro);
