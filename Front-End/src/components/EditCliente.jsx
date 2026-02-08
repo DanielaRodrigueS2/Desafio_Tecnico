@@ -10,7 +10,7 @@ function EditCliente(props){
     const [email, setEmail] = useState(dados.email);
     const [telefone, setTelefone] = useState(dados.telefone);
     const [cidade, setCidade] = useState(dados.cidade);
-    const [erro, setErro] = useState('Abacate')
+    const [erro, setErro] = useState('')
 
 
     const editarCliente = (e) =>{
@@ -36,7 +36,16 @@ function EditCliente(props){
     }
 
     const deletarCliente = () =>{
-        
+        axios
+            .delete(`http://localhost:3000/clientes/${dados.id_num}`)
+            .then(()=>{
+                console.log('Cliente deletado');
+                props.fecharMenu();
+                props.buscar();
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
     }
 
     return(
@@ -65,12 +74,12 @@ function EditCliente(props){
                 <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)}></input>
             </div>
 
-            <p className="msgErroEdicao">*{erro}*</p>
+            <p className="msgErroEdicao">{erro}</p>
 
             <div className="botoesEditar">
 
                 <button className ='botaoEditarCliente' type="submit">Editar Cliente</button>
-                <button className="botaoDeletarCliente" onClick={deletarCliente}>Deletar Cliente</button>
+                <button type="button" className="botaoDeletarCliente" onClick={deletarCliente}>Deletar Cliente</button>
 
             </div>
 
