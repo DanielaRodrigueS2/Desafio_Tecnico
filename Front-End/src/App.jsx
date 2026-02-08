@@ -63,7 +63,7 @@ function App() {
         <div className='lista'>
           
           {dados && dados.map((item) =>(
-            <Cliente data={item} abrirMenu={abrirMenuEdicao} selecionado={setCliente}></Cliente>
+            <Cliente key={item.id_num} data={item} abrirMenu={abrirMenuEdicao} selecionado={setCliente}></Cliente>
           ))}
 
         </div>
