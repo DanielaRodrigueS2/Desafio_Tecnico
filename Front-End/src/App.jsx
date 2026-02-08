@@ -8,12 +8,11 @@ import { useEffect } from 'react';
 
 function App() {
 
-  const [busca, setBusca] = useState('')
   const [menuCadastro, setMenuCadastro] = useState(false);
   const [menuEdicao, setMenuEdicao] = useState(false);
 
-  const [cliente, setCliente] = useState(null)
-  const[dados, setDados] = useState(null)
+  const [cliente, setCliente] = useState(null);
+  const [dados, setDados] = useState(null);
 
   // Funcões para abrir e fechar o menu de Cadastro de clientes
   const fecharMenuCadastro = () => setMenuCadastro(false);
@@ -23,6 +22,12 @@ function App() {
   const fecharMenuEdicao = () => setMenuEdicao(false);
   const abrirMenuEdicao = () => setMenuEdicao(true);
 
+  // Constantes para buscar valores
+  const [busca, setBusca] = useState('')
+  const [criterioBusca, setCriterioBusca] = useState('nome');
+
+
+  // Funcao de buscar e atualização de clientes
   const buscarClientes = () =>{
     axios
         .get(`http://localhost:3000/clientes`)
@@ -35,10 +40,20 @@ function App() {
         })
   }
 
+
   // Coleta de dados da API primeira vez
   useEffect(() =>{
     buscarClientes()
   }, [])
+
+  
+  const dadosFiltrados = dados?.filter((item)=>{
+
+    if(!busca) return true;
+
+    return item[criterioBusca]?.toLowerCase().includes(busca.toLowerCase());
+  })
+
 
   return (
     <div className='principal'>
@@ -52,7 +67,7 @@ function App() {
 
           <input value={busca} onChange={(e) => setBusca(e.target.value)} className='barraDeBusca'></input>
 
-          <select className='dropDown'>
+          <select value={criterioBusca} onChange={(e) => setCriterioBusca(e.target.value)} className='dropDown' id='opcoes'>
             <option value='nome'>Nome</option>
             <option value='email'>Email</option>
             <option value='cidade'>Cidade</option>
@@ -62,7 +77,7 @@ function App() {
 
         <div className='lista'>
           
-          {dados && dados.map((item) =>(
+          {dadosFiltrados && dadosFiltrados.map((item) =>(
             <Cliente key={item.id_num} data={item} abrirMenu={abrirMenuEdicao} selecionado={setCliente}></Cliente>
           ))}
 
