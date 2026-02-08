@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import axios from 'axios';
 import './App.css'
 import Cliente from './components/Cliente'
 import AddCliente from './components/AddCliente'
 import EditCliente from './components/EditCliente'
+import { useEffect } from 'react';
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
   const [menuEdicao, setMenuEdicao] = useState(false);
 
   const [cliente, setCliente] = useState(null)
+  const[dados, setDados] = useState(null)
 
   // Funcões para abrir e fechar o menu de Cadastro de clientes
   const fecharMenuCadastro = () => setMenuCadastro(false);
@@ -19,6 +22,19 @@ function App() {
   // Funcoes para abrir e fechar o menu de Edicao de Clientes
   const fecharMenuEdicao = () => setMenuEdicao(false);
   const abrirMenuEdicao = () => setMenuEdicao(true);
+
+  // Coleta de dados da API
+  useEffect(() =>{
+    axios
+        .get(`http://localhost:3000/clientes`)
+        .then((response) => {
+            setDados(response.data);
+
+        })
+        .catch((erro) => {
+            console.log(erro.message);
+        })
+  }, [])
 
   return (
     <div className='principal'>
@@ -42,7 +58,7 @@ function App() {
 
         <div className='lista'>
           
-          {dadosTeste.map((item) =>(
+          {dados && dados.map((item) =>(
             <Cliente data={item} abrirMenu={abrirMenuEdicao} selecionado={setCliente}></Cliente>
           ))}
 
