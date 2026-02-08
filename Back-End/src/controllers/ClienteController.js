@@ -28,7 +28,7 @@ exports.createCliente = async (req,res) =>{
     const {nome, email, telefone, cidade} = req.body;
     try{
         const clienteExistente = await Cliente.findOne({email});
-        if(clienteExistente) return res.status(400).json({erro: 'Email já cadastrado'}); // verifica se um cliente ja possui esse email
+        if(clienteExistente) return res.status(409).json({erro: 'Email já cadastrado'}); // verifica se um cliente ja possui esse email
         
         const id = await getProximo('cliente');
         const clienteNovo = new Cliente({id_num: id, nome, email, telefone, cidade});
@@ -51,7 +51,7 @@ exports.editCliente = async (req, res)=>{
 
         if(email){
             const clienteExistente = await Cliente.findOne({email: email, id_num: {$ne : id}}) // verifica se outro cliente possui o email novo (tirando o cliente atual)
-            if (clienteExistente) return res.status(400).json({erro: 'Um cliente já possui esse email'})
+            if (clienteExistente) return res.status(409).json({erro: 'Um cliente já possui esse email'})
         }
 
         // Atualiza os dados alterados
