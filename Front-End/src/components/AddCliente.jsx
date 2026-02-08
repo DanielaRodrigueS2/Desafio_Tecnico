@@ -1,5 +1,6 @@
 import { useState } from "react";
-import './AddCliente.css'
+import './AddCliente.css';
+import axios from 'axios';
 
 function AddCliente(props){
 
@@ -7,12 +8,33 @@ function AddCliente(props){
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cidade, setCidade] = useState('');
-    const [erro, setErro] = useState('Abacate')
+    const [erro, setErro] = useState('')
 
-    const cadastrarCliente = (e) =>{
-        e.preventDefault();
-        // Aplicação do fetch para o back end
+    const cadastrarCliente = (event) =>{
+        event.preventDefault();
 
+        if(!nome || !email || !telefone ||  !cidade){
+            setErro('Campos incompletos');
+            return;
+        }
+        
+        const novoCliente = {
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            cidade: cidade,
+        }
+
+        axios
+            .post(`http://localhost:3000/clientes`, novoCliente)
+            .then((response) => {
+                console.log(response.data);
+                props.fecharMenu();
+                props.buscarClientes();
+            })
+            .catch((err)=>{
+                setErro(err.response.data.erro);
+            })
     }
 
     return(
@@ -41,7 +63,7 @@ function AddCliente(props){
                 <input type="text" value={cidade} onChange={(e) => setCidade(e.target.value)}></input>
             </div>
 
-            <p className="msgErroCadastro">*{erro}*</p>
+            <p className="msgErroCadastro">{erro}</p>
 
             <button className ='botaoCadastrarCliente' type="submit">Cadastrar Cliente</button>
 

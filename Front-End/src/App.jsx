@@ -23,8 +23,7 @@ function App() {
   const fecharMenuEdicao = () => setMenuEdicao(false);
   const abrirMenuEdicao = () => setMenuEdicao(true);
 
-  // Coleta de dados da API
-  useEffect(() =>{
+  const buscarClientes = () =>{
     axios
         .get(`http://localhost:3000/clientes`)
         .then((response) => {
@@ -34,6 +33,11 @@ function App() {
         .catch((erro) => {
             console.log(erro.message);
         })
+  }
+
+  // Coleta de dados da API primeira vez
+  useEffect(() =>{
+    buscarClientes()
   }, [])
 
   return (
@@ -66,8 +70,8 @@ function App() {
 
         <button className='adicionarCliente' onClick={abrirMenuCadastro}>Adicionar Cliente</button>
 
-        {menuCadastro && <AddCliente fecharMenu={fecharMenuCadastro}></AddCliente>}
-        {menuEdicao && cliente && <EditCliente fecharMenu={fecharMenuEdicao} dadosCliente={cliente}></EditCliente>}
+        {menuCadastro && <AddCliente buscar={buscarClientes} fecharMenu={fecharMenuCadastro}></AddCliente>}
+        {menuEdicao && cliente && <EditCliente buscar={buscarClientes} fecharMenu={fecharMenuEdicao} dadosCliente={cliente}></EditCliente>}
 
       </main>
 

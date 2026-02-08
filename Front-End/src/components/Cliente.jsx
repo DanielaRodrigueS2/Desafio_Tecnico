@@ -10,7 +10,7 @@ function Cliente(props){
     }
 
     return(
-        <div className="card" onClick={abrir} key={data.id}>
+        <div className="card" onClick={abrir}>
             <label className='cardLabel' >{data.nome}</label>
             <label className='cardLabel'>{data.email}</label>
             <label className='cardLabel'>{data.cidade}</label>
