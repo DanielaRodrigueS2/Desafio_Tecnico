@@ -20,20 +20,6 @@ function App() {
   const fecharMenuEdicao = () => setMenuEdicao(false);
   const abrirMenuEdicao = () => setMenuEdicao(true);
 
-
-
-  const dadosTeste = [
-    {id: 1, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 2, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 3, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 4, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 5, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 6, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    {id: 7, nome: 'Dan Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bom despacho'},
-    {id: 8, nome: 'Daisy Abacaxi', email: 'daniela@abacaxi', telefone: '0028922',cidade: 'Bdespacho'},
-    
-  ]
-
   return (
     <div className='principal'>
       <header className='header'>
